@@ -18,12 +18,10 @@ namespace TEST2
             // Enable session services
             builder.Services.AddSession();
 
-            var googleClientId = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_ID");
-            var googleClientSecret = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_SECRET");
-            var mysqlPassword = Environment.GetEnvironmentVariable("MYSQL_PASSWORD");
+
 
             // Database connection
-            var connectionString = builder.Configuration.GetConnectionString("MySqlConnection").Replace("${MYSQL_PASSWORD}", mysqlPassword);
+            var connectionString = "Server=localhost;Database=projet;User=root;Password=Alinx123@;Port=3306;SslMode=none;AllowPublicKeyRetrieval=True;";
             builder.Services.AddDbContext<YourDbContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
