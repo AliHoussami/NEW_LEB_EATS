@@ -33,5 +33,6 @@ namespace TEST2.Models
 
         [Range(0,5)]
         public decimal Rating { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
