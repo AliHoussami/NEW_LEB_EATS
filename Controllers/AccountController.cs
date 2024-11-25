@@ -223,6 +223,6 @@ namespace TEST2.Controllers
                 // Compare the hashed input password with the stored hashed password
                 return hashedInput == storedHashedPassword;
             }
-        }      
+        }
     }
 }
