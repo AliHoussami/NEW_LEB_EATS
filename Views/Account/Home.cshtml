@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Ordering System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <style>
         /* General Styles */
         body {
@@ -76,37 +76,54 @@
             }
 
         .trending-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensures proper spacing between elements */
+            height: 100%; /* Make all cards the same height */
             border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centers content inside the card */
         }
 
-            .trending-card:hover {
-                transform: scale(1.05);
-            }
-
             .trending-card img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
+                width: 100%; /* Make the image take full width */
+                height: 200px; /* Set consistent height for all images */
+                object-fit: cover; /* Ensures images maintain aspect ratio and fill the space */
             }
 
             .trending-card .details {
+                flex-grow: 1; /* Ensures the details section stretches evenly */
                 padding: 15px;
-                text-align: center;
             }
 
-                .trending-card .details h5 {
-                    font-size: 1.3rem;
-                    margin: 0;
-                }
+            .trending-card h5 {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 10px; /* Space below the title */
+            }
 
-                .trending-card .details p {
-                    font-size: 1rem;
-                    color: #777;
-                    margin: 10px 0;
+            .trending-card p {
+                font-size: 0.95rem;
+                color: #777;
+                margin-bottom: 15px; /* Space below the description */
+            }
+
+            .trending-card button {
+                margin-top: auto; /* Push the button to the bottom */
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                border-radius: 5px;
+                background-color: #28a745;
+                color: white;
+                cursor: pointer;
+            }
+
+                .trending-card button:hover {
+                    background-color: #218838;
                 }
 
         /* Restaurants List */
@@ -176,6 +193,8 @@
             text-align: center;
             padding: 20px 0;
         }
+
+        
     </style>
 </head>
 <body>
@@ -206,39 +225,8 @@
     <section class="trending-section" id="trending">
         <div class="container">
             <h2>Trending Restaurants</h2>
-            <div class="row g-4">
-                <!-- Trending Card -->
-                <div class="col-md-4">
-                    <div class="trending-card">
-                        <img src="/IMAGE/restaurant1.jpg" alt="Trending Restaurant 1">
-                        <div class="details">
-                            <h5>Spicy Delight</h5>
-                            <p>Popular for its spicy cuisines.</p>
-                            <button class="btn btn-success">View Menu</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Repeat for more restaurants -->
-                <div class="col-md-4">
-                    <div class="trending-card">
-                        <img src="/IMAGE/restaurant2.jpg" alt="Restaurant 2">
-                        <div class="details">
-                            <h5>Green Bowl</h5>
-                            <p>Best salads and healthy meals.</p>
-                            <button class="btn btn-success">View Menu</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="trending-card">
-                        <img src="/IMAGE/restaurant3.jpg" alt="Restaurant">
-                        <div class="details">
-                            <h5>Italiano</h5>
-                            <p>Authentic Italian dishes.</p>
-                            <button class="btn btn-success">View Menu</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4" id="trending-restaurants">
+                <!-- Dynamic trending restaurants will be loaded here -->
             </div>
         </div>
     </section>
@@ -246,47 +234,27 @@
     <!-- Restaurants List -->
     <section class="restaurants-section" id="restaurants">
         <div class="container">
-            <h2>All Restaurants</h2>
-            <!-- Restaurant Item -->
-            <div class="restaurant-item">
-                <img src="/IMAGE/restaurant1.jpg" alt="Restaurant">
-                <div class="info">
-                    <h5>Spicy Delight</h5>
-                    <p>Spicy Indian dishes.</p>
-                    <div>
-                        <span class="rating">★★★★☆</span>
-                    </div>
-                </div>
-                <div class="order-button">
-                    <button class="btn btn-primary">Order Now</button>
-                </div>
+            <h2>All Restaurants</h2>            
+                
             </div>
-            <!-- Repeat Restaurant Items -->
-            <div class="restaurant-item">
-                <img src="/IMAGE/restaurant2.jpg" alt="Restaurant">
-                <div class="info">
-                    <h5>Green Bowl</h5>
-                    <p>Fresh and healthy meals.</p>
-                    <div>
-                        <span class="rating">★★★★★</span>
-                    </div>
-                </div>
-                <div class="order-button">
-                    <button class="btn btn-primary">Order Now</button>
-                </div>
-            </div>
-            <div class="restaurant-item">
-                <img src="/IMAGE/restaurant3.jpg" alt="Restaurant">
-                <div class="info">
-                    <h5>Italiano</h5>
-                    <p>Best Italian food in town.</p>
-                    <div>
-                        <span class="rating">★★★★☆</span>
-                    </div>
-                </div>
-                <div class="order-button">
-                    <button class="btn btn-primary">Order Now</button>
-                </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 50px 0; background-color: #f1f1f1;">
+        <div class="container text-center">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, feel free to reach out to us via the following channels:</p>
+            <p><strong>Email:</strong> contact@LEBEATS.com</p>
+            <p><strong>Phone:</strong> 01 111 111</p>
+            <p><strong>Address:</strong> 123 Food Street, Foodie City, FC 45678</p>
+            <p>Follow us on our social media platforms to stay updated!</p>
+            <div>
+                <a href="#" class="btn btn-primary mx-2">Facebook</a>
+                <a href="#" class="btn btn-secondary mx-2">Instagram</a>
+                <a href="#" class="btn btn-info mx-2">Twitter</a>
             </div>
         </div>
     </section>
@@ -304,5 +272,69 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fetch the list of all restaurants from the backend
+            fetch('/api/restaurants') // Replace with your actual API endpoint
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.querySelector('.restaurants-section .container');
+
+                    // Loop through each restaurant and create the HTML
+                    data.forEach(restaurant => {
+                        const restaurantItem = `
+                            <div class="restaurant-item">
+                                <img src="${restaurant.imageUrl || '/Images/default-restaurant.jpg'}" alt="${restaurant.restaurantName}" class="restaurant-img">
+                                <div class="info">
+                                    <h5>${restaurant.restaurantName}</h5>
+                                    <p>${restaurant.description || 'No description available.'}</p>
+                                    <div>
+                                        <span class="rating">${'★'.repeat(Math.round(restaurant.rating))}☆</span>
+                                    </div>
+                                </div>
+                                <div class="order-button">
+                                    <button class="btn btn-primary">Order Now</button>
+                                </div>
+                            </div>
+                        `;
+                        // Append the restaurant item to the container
+                        container.insertAdjacentHTML('beforeend', restaurantItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching restaurants:', error);
+                    const container = document.querySelector('.restaurants-section .container');
+                    container.innerHTML = '<p class="text-danger">Failed to load restaurants. Please try again later.</p>';
+                });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/restaurants/trending')
+                .then(response => response.json())
+                .then(data => {
+                    const trendingContainer = document.getElementById('trending-restaurants');
+
+                    data.forEach(restaurant => {
+                        const trendingCard = `
+                            <div class="col-md-4">
+                                <div class="trending-card">
+                                    <img src="${restaurant.imageUrl}" alt="${restaurant.restaurantName}">
+                                    <div class="details">
+                                        <h5>${restaurant.restaurantName}</h5>
+                                        <p>${restaurant.description || 'No description available.'}</p>
+                                        <button class="btn btn-success">View Menu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        trendingContainer.insertAdjacentHTML('beforeend', trendingCard);
+                    });
+                })
+                .catch(error => console.error('Error fetching trending restaurants:', error));
+        });
+    </script>
+
 </body>
 </html>
